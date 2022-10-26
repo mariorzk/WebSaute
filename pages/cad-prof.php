@@ -27,7 +27,7 @@ input[type=number]::-webkit-outer-spin-button {
   </div>
   <hr>
   <div class="container shadow p-3 mb-5 bg-white rounded">
-    <form action="?page=salvar-prof" method="POST">
+    <form action="?page=salvar-prof" method="POST" enctype="multipart/form-data">
       <input type="hidden"  name="acao" value="cadastrar">
       <div class="form-row">
         <div class="form-group col-md-8">
