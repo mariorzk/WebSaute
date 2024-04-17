@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -73,6 +72,9 @@
                             <a class="dropdown-item" href="?page=dependencia">Dependência</a>
                             <a class="dropdown-item" href="?page=entidade">Entidade</a>
                             <a class="dropdown-item" href="?page=municipio">Município</a>
+                            <a class="dropdown-item" href="?page=orgao">Órgão Emissor</a>
+                            <a class="dropdown-item" href="?page=habilitacao">Habilitação</a>
+                            <a class="dropdown-item" href="?page=grau">Grau de Habilitação</a>
                         </div>
                     </li>
                 </ul>
@@ -83,23 +85,11 @@
 
     <!-- CONTEÚDO DA PAGINA-->
     <div class="container">
-        <div class="row"></div>
-            <div class="col mt-5"></div>
-                <?php
-                include("configs/cfg.php");
-                include("configs/page-routers.php");
-                ?>
-            </div>
-        </div>
+        <?php
+        include("configs/cfg.php");
+        include("configs/page-routers.php");
+        ?>
     </div>
-
-    <!--RODAPÉ "Preciso ajustar o posicionamento"
-    <footer>WebSaute - Desenvolvido por <a href="https://instagram.com/mariorzk" target="_blank">Mario Rocha</a> - 2022</footer>
-    -->
+    <!-- <footer>WebSaute - Desenvolvido por <a href="https://instagram.com/mariorzk" target="_blank">Mario Rocha</a> - 2024</footer>    -->
 </body>
-
-    <!--SCRIPTS DA PAGINA-->
-<script>
-   
-</script>
 </html>
