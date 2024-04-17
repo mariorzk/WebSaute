@@ -1,27 +1,3 @@
-<style>
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-    background-image: url(img/bg-body.png);
-    background-size: 100%;
-  }
-
-  .titulo {
-    color: #4b606a;
-    text-align: center;
-  }
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-}
-</style>
-
-<body>
-
   <div class="titulo">
     <h1>Cadastrar Professor(a)</h1>
   </div>
@@ -64,7 +40,7 @@ input[type=number]::-webkit-outer-spin-button {
           <input type="text" class="form-control" name="input-rg" id="input-rg" maxlength="15" placeholder="1234567890">
         </div>
         <div class="form-group col-md-3">
-          <label for="orgao">Órgão Expedidor:</label>
+          <label for="orgao">Órgão Emissor:</label>
           <select name="select-orgao" id="select-orgao" class="form-control">
             <option selected>Selecione...</option>
             <?php
@@ -147,14 +123,33 @@ input[type=number]::-webkit-outer-spin-button {
       </div>
       <div class="form-row">
         <div class="form-group col-2">
-          <img src="img/profile.png" width="200px" class="img-thumbnail" alt="foto-prof">
+          <img src="img/profile.png" width="200px" class="img-thumbnail" alt="foto-prof" id="preview-img">
         </div>
         <div class="custom-file col">
-          <input type="file" class="custom-file-input" name=input-foto id="input-foto">
-          <label class="custom-file-label" for="foto">Foto</label>
+          <input type="file" class="custom-file-input" name=input-foto id="input-foto" onchange="previewImage(event)">
+          <label class="custom-file-label" for="foto" id="label-foto">Foto</label>
         </div>
       </div>
-      <button type="submit" class="btn btn-lg btn-success">Salvar</button>
+      <button type="submit" class="btn btn-success">Salvar</button>
     </form>
   </div>
-</body>
+  <script>
+  function previewImage(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    var label = document.getElementById('label-foto');
+    
+    reader.onload = function() {
+      var imgElement = document.getElementById('preview-img');
+      imgElement.src = reader.result;
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  if (input.files.length > 0) {
+    label.innerText = input.files[0].name;
+  } else {
+    label.innerText = 'Foto';
+  }
+  }
+</script>

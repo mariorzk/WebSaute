@@ -1,47 +1,16 @@
-<style>
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-    background-image: url(img/bg-body.png);
-    background-size: 100%;
-  }
-  .container {
-    width: 550px;
-  }
-
-  .titulo {
-    color: #4b606a;
-    text-align: center;
-  }
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-}
-</style>
-
-<body>
-
   <div class="titulo">
     <h1>Cadastrar Entidade</h1>
   </div>
   <hr>
-  <div class="container shadow p-3 mb-5 bg-white rounded">
-    <form action="?page=salvar-ent" method="POST">
-      <input type="hidden" name="acao" value="cadastrar">
-        <div>
-            <div class="form-group col-md-9">
+  <div class="row justify-content-center">
+    <div class="container-mini shadow p-3 mb-5 bg-white rounded">
+      <form action="?page=salvar-ent" method="POST">
+        <input type="hidden" name="acao" value="cadastrar">
+          <div class="form-group col-md-12">
             <label for="entidade">Entidade:</label>
-            <input type="text" class="form-control" name="input-entidade" id="input-entidade" placeholder="Secretaria de Educação">
-            </div>
-            <div>
-            <button type="submit" class="btn btn-lg btn-success">Salvar</button>
-        </div>
-        </div>
-      
-    </form>
+            <input type="text" class="form-control mb-3" name="input-entidade" id="input-entidade" placeholder="Secretaria de Educação">
+            <button type="submit" class="btn btn-success">Salvar</button>
+          </div> 
+      </form>
+    </div>
   </div>
-</body>

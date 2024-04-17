@@ -16,24 +16,46 @@ switch ($_REQUEST["acao"]) {
         $pai = $_POST["input-pai"];
         $habilitacao = $_POST["select-habilitacao"];
         $niv_habilitacao = $_POST["select-niv-hab"];
-        $foto = $_POST["input-foto"];
+        $foto = $_FILES["input-foto"];
 
+        // Verifica se o arquivo foi enviado com sucesso
+        if ($foto['error'] === UPLOAD_ERR_OK) {
+            
+            $foto_nome = $foto['name']; 
+            $foto_tmp = $foto['tmp_name']; 
+            $diretorio_destino = 'configs/uploads'; // Diretório onde os arquivos serão armazenados
+            $foto_destino = $diretorio_destino . $foto_nome; 
 
-        $sql = "INSERT INTO cad_prof (nome, foto, nasc, id_nat, cpf, rg, id_orgao, endereco, num, fixo, celular, email, pai, mae, id_hab, id_niv_hab) VALUES ('{$nome}', '{$foto}', '{$nascimento}', '{$naturalidade}', '{$cpf}', '{$rg}', '{$orgao}', '{$endereco}', '{$numero}', '{$fixo}', '{$celular}', '{$email}', '{$pai}', '{$mae}', '{$habilitacao}', '{$niv_habilitacao}')"; 
-        $res = $conn->query($sql);
+            if (move_uploaded_file($foto_tmp, $foto_destino)) {
+               
+                $sql = "INSERT INTO cad_prof (nome, foto, nasc, id_nat, cpf, rg, id_orgao, endereco, num, fixo, celular, email, pai, mae, id_hab, id_niv_hab) VALUES ('$nome', '$foto_destino', '$nascimento', '$naturalidade', '$cpf', '$rg', '$orgao', '$endereco', '$numero', '$fixo', '$celular', '$email', '$pai', '$mae', '$habilitacao', '$niv_habilitacao')"; 
+                $res = $conn->query($sql);
 
-        if($res==true){
-            print "<script>alert('Cadastrado com sucesso');</script>";
-            print "<script>location.href='?page=professor';</script>";
-        }else {
-            print "<script>alert('Erro ao cadastrar');</script>";
+                if($res==true){
+                    print "<script>alert('Cadastrado com sucesso');</script>";
+                    print "<script>location.href='?page=professor';</script>";
+                } else {
+                    print "<script>alert('Erro ao cadastrar');</script>";
+                    print "<script>location.href='?page=professor';</script>";
+                }
+            } else {
+                
+                print "<script>alert('Erro ao enviar foto para o servidor');</script>";
+                print "<script>location.href='?page=professor';</script>";
+            }
+        } else {
+           
+            print "<script>alert('Erro ao enviar a foto');</script>";
             print "<script>location.href='?page=professor';</script>";
         }
         break;
+
     case 'editar':
         //code...
         break;
+
     case 'excluir':
         //code...
         break;
 }
+?>
