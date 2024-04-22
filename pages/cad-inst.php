@@ -10,7 +10,7 @@
       <input type="text" class="form-control" name="input-instituicao" id="input-instituicao" placeholder="EEM Escola de Ensino Médio">
     </div>
     <div class="form-row">
-      <div class="form-group col-md-8">
+      <div class="form-group col-md-4">
         <label for="nivel">Nível:</label>
         <select name="select-nivel" id="select-nivel" class="form-control">
           <option selected>Selecione...</option>
@@ -25,13 +25,13 @@
           ?>
         </select>
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-8">
         <label for="endereco">Endereço:</label>
         <input type="text" class="form-control" name="input-endereco" id="input-endereco" placeholder="Rua dos bobos">
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-3">
         <label for="bairro-distrito">Bairro/Distrito:</label>
         <input type="text" class="form-control" name="input-bairro" id="input-bairro" placeholder="Copacabana">
       </div>
@@ -50,7 +50,7 @@
           ?>
         </select>
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-5">
         <label for="email">E-mail:</label>
         <input type="email" class="form-control" name="input-email" id="input-email" placeholder="nomezinho@dominio.com.br">
       </div>

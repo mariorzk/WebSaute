@@ -90,6 +90,14 @@
         include("configs/page-routers.php");
         ?>
     </div>
-    <!-- <footer>WebSaute - Desenvolvido por <a href="https://instagram.com/mariorzk" target="_blank">Mario Rocha</a> - 2024</footer>    -->
+    <!-- <footer class="footer border-top py-4">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="m-0 text-center text-muted">&copy; 2024 Mario Rocha - Todos os direitos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer> -->
 </body>
 </html>
